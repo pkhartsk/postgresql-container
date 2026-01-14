@@ -146,12 +146,18 @@ class TestPostgreSQLConfigurationContainer:
                 "",
                 "",
                 "",
-                '"the @password"',
+                "the @password",
             ],
             [
-                '"the user"',
-                '"the pass"',
-                '"the db"',
+                "the user",
+                "the pass",
+                "the db",
+                "",
+            ],
+            [
+                "the@user",
+                "the pass",
+                "the/db",
                 "",
             ],
         ],
@@ -171,14 +177,14 @@ class TestPostgreSQLConfigurationContainer:
         psql_password_arg = ""
         psql_database_arg = ""
         if psql_user:
-            psql_user_arg = f"-e POSTGRESQL_USER={psql_user}"
+            psql_user_arg = f'-e POSTGRESQL_USER="{psql_user}"'
         if psql_password:
-            psql_password_arg = f"-e POSTGRESQL_PASSWORD={psql_password}"
+            psql_password_arg = f'-e POSTGRESQL_PASSWORD="{psql_password}"'
         if psql_database:
-            psql_database_arg = f"-e POSTGRESQL_DATABASE={psql_database}"
+            psql_database_arg = f'-e POSTGRESQL_DATABASE="{psql_database}"'
         if psql_admin_password:
             psql_admin_password_arg = (
-                f"-e POSTGRESQL_ADMIN_PASSWORD={psql_admin_password}"
+                f'-e POSTGRESQL_ADMIN_PASSWORD="{psql_admin_password}"'
             )
         container_args = [
             psql_user_arg,

@@ -58,9 +58,9 @@ def get_previous_major_version():
 def get_upgrade_path():
     upgrade_path = {
         "rhel8": "none 12 13 15 16 none",
-        "rhel9": "none 13 15 16 none",
-        "rhel10": "none 13 15 16 none",
-        "fedora": "none 12 13 14 15 16 none",
+        "rhel9": "none 13 15 16 18 none",
+        "rhel10": "none 16 18 none",
+        "fedora": "none 15 16 18 none",
     }
     for version in upgrade_path.keys():
         if version == VARS.VERSION:
