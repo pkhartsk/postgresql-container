@@ -71,7 +71,8 @@ class TestPostgreSQLS2ISSLContainer:
             container_id=VARS.IMAGE_NAME,
             username="postgres",
             password=admin_password,
-            database="postgres?sslmode=require",
+            database="postgres",
+            uri_params={"sslmode": "require"},
             sql_command="-At -c 'SELECT 1;'",
         )
         assert re.search(r"1", output), f"1 not found in {output}"
